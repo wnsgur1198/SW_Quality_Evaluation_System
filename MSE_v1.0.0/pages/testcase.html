@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>MSE</title>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+
+    <link href="../css/testcase.css" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/simple-sidebar.css" rel="stylesheet">
+
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="d-flex" id="wrapper">
+
+        <!-- Sidebar -->
+        <div class="bg-light border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading">MSE</div>
+            <div class="list-group list-group-flush">
+                <a href="../index.html" class="list-group-item list-group-item-action bg-light">Main</a>
+                <a href="./testcase.html" class="list-group-item list-group-item-action bg-light">TC</a>
+                <!-- <a href="./show_testcase.php" class="list-group-item list-group-item-action bg-light">QA</a> -->
+                <!-- <a href="./result.html" class="list-group-item list-group-item-action bg-light">Report</!-->
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <button class="btn btn-primary" id="menu-toggle">MSE Menu</button>
+            </nav>
+
+            <div class="container-fluid">
+                <!-- 내용 -->
+                <div id="jb-container">
+                    <div id="jb-header">
+                        <h1>Testcase</h1>
+                    </div>
+
+                    <div id="jb-content">
+                        <h2 id="choice_name">Content</h2>
+                        <div id="choice_big">
+                            <form method="get" action="#" id="check_big">
+                                <label>대분류</label><br>
+                                <label><input type="radio" name="big" id="big_Healthcare" value="Healthcare">
+                                    Healthcare</label><br>
+                                <label><input type="radio" name="big" id="big_Energy" value="Energy">
+                                    Energy</label><br>
+                                <label><input type="radio" name="big" id="big_Military" value="Military">
+                                    Military</label><br>
+                                <label><input type="radio" name="big" id="big_Transfortation" value="Transfortation">
+                                    Transportation</label><br>
+                            </form>
+                        </div>
+                        <div id="choice_middle" style="display: none">
+                            <form method="get" action="#" id="check_middle">
+                                <label>중분류</label><br>
+                                <label><input type="checkbox" name="middle" id="middle_IHE" value="IHE"> IHE</label><br>
+                                <label><input type="checkbox" name="middle" id="middle_NIST" value="NEST">
+                                    NIST</label><br>
+                            </form>
+                        </div>
+                        <div id="choice_small" style="display: none">
+                            <form method="get" action="#" id="check_small">
+                                <label>소분류</label><br>
+                                <label><input type="checkbox" name="small" id="small_cardiology" value="cardiology">
+                                    cardiology</label><br>
+                                <label><input type="checkbox" name="small" id="small_eyecare" value="eyecare">
+                                    eyecare</label><br>
+                                <label><input type="checkbox" name="small" id="small_radiation" value="radiation">
+                                    radiation</label><br>
+                            </form>
+                        </div>
+                        <div id="setting" style="display: none">
+                            <input type="button" name="choice" id="choice" value="선택하기">
+                        </div>
+                    </div>
+
+                    <div id="jb-footer">
+                        <input type='text' id='result' value="분류표기" style="width:60%">
+                        <a href="./show_testcase.php"><input type="submit" id='submit' value="테스트하기"
+                                style="display: none"></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src=" ../vendor/jquery/jquery.min.js"> </script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+
+    <script type="text/javascript" src="../js/testcase.js"></script>
+
+
+</body>
+
+</html>

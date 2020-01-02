@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>MSE</title>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+
+    <link href="../css/testcase.css" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/simple-sidebar.css" rel="stylesheet">
+
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid gray;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="d-flex" id="wrapper">
+
+        <!-- Sidebar -->
+        <div class="bg-light border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading">MSE</div>
+            <div class="list-group list-group-flush">
+                <a href="../index.html" class="list-group-item list-group-item-action bg-light">Main</a>
+                <a href="../pages/testcase.html" class="list-group-item list-group-item-action bg-light">TC</a>
+                <a href="../pages/show_testcase.php" class="list-group-item list-group-item-action bg-light">QA</a>
+                <!-- <a href="../pages/result.html" class="list-group-item list-group-item-action bg-light">Report</!-->
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <button class="btn btn-primary" id="menu-toggle">MSE Menu</button>
+            </nav>
+
+            <div class="container-fluid">
+                <!-- 내용 -->
+                <div id="jb-container">
+                    <div id="jb-header">
+                    </div>
+
+                    <div id="jb-content">
+                        <div style="width: 90%">
+                            <div id="chart_defect" style="width: 500px; height: 500px;"></div>
+                            <div id="chart_quality" style="width: 500px; height: 500px;"></div>
+                        </div>
+
+                        <div>
+                            <hr>
+                            <div id="comment_result"></div>
+                        </div>
+                    </div>
+
+                    <div id="jb-footer">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src=" ../vendor/jquery/jquery.min.js"> </script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+
+    <script type="text/javascript" src="../js/testcase.js"></script>
+
+    <script language="javascript">
+        temp = location.href.split("?");
+        data = temp[1].split(":");
+        var count_yes = data[0];
+        var count_no = data[1];
+        var count_1 = data[2];
+        var count_2 = data[3];
+        var count_3 = data[4];
+        var count_4 = data[5];
+        var count_5 = data[6];
+        var count_6 = data[7];
+        var count_commnet = data[8];
+        var comments = data[9];
+        //alert(count_yes + ", " + count_no);
+
+        Encoder_comments = decodeURI(comments);
+
+        // var comm_i=temp2[i] 형태
+        temp2 = Encoder_comments.split(",");
+        for (var i = 0; i < count_commnet; i++) {
+            eval("var comm_" + i + "=temp2[" + i + "]");
+            eval("comment_result = comm_" + i + ".split('=')");
+            eval("var num_" + i + "=comment_result[0]");
+            eval("var content_" + i + "=comment_result[1]");
+        }
+
+        var str = "";
+        str += "<table>";
+        str += "<th>";
+        str += "id";
+        str += "</th>";
+        str += "<th>";
+        str += "comment";
+        str += "</th>";
+
+        for (var i = 0; i < count_commnet; i++) {
+            str += "<tr>";
+            str += "<td>";
+            str += eval("num_" + i);
+            str += "</td>";
+            str += "<td>";
+            str += eval("content_" + i);
+            str += "</td>";
+            str += "</tr>";
+        }
+
+        str += "</table>";
+        document.getElementById("comment_result").innerHTML = str;
+
+
+
+        //alert(num_2 + ",," + content_2);
+        //alert(comment_result0);
+        //alert(comm_2);
+
+        //var comment = document.getElementById('comment_result').innerHTML = Encoder_comments;
+        //document.writ(count_yes + " " + count_no);
+    </script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        //alert(count_yes + ", " + count_no);
+
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawVisualization);
+
+        function drawVisualization() {
+            var data = google.visualization.arrayToDataTable([
+                ['응답', '개수'],
+                ['YES', Number(count_yes)],
+                ['NO', Number(count_no)],
+
+            ]);
+            var options = {
+                title: '테스트 통과 여부 그래프 ',
+                vAxis: {
+                    title: '개수'
+                },
+                hAxis: {
+                    title: '결과상태'
+                },
+                seriesType: 'bars',
+                series: {
+                    5: {
+                        type: 'line'
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ComboChart(document.getElementById('chart_defect'));
+            chart.draw(data, options);
+        }
+    </script>
+
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawVisualization);
+
+        function drawVisualization() {
+            var data = google.visualization.arrayToDataTable([
+                ['품질특성', '특성별 결함 수'],
+                ['기능성', Number(count_1)],
+                ['신뢰성', Number(count_2)],
+                ['사용성', Number(count_3)],
+                ['효율성', Number(count_4)],
+                ['유지보수성', Number(count_5)],
+                ['이식성', Number(count_6)]
+            ]);
+            var options = {
+                title: '품질특성별 결함내역',
+                vAxis: {
+                    title: '결함 수'
+                },
+                hAxis: {
+                    title: '품질특성'
+                },
+                seriesType: 'bars',
+                series: {
+                    5: {
+                        type: 'line'
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ComboChart(document.getElementById('chart_quality'));
+            chart.draw(data, options);
+        }
+    </script>
+
+
+</body>
+
+</html>

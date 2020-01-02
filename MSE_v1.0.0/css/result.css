@@ -1,0 +1,96 @@
+body {
+
+margin: 0;
+
+padding: 0;
+
+}
+
+#title {
+	width:100%; 
+	height:80px; 
+	text-align:center; 
+	font:bold 5em/1em Georgia;
+	border:0;
+}
+
+.title {
+	width:100%; 
+	height:80px; 
+	text-align:center; 
+	font:bold 3em/1em Georgia;
+	border:0;
+}
+
+#index {
+	width:100%; 
+	height:80px; 
+	font:bold 4em/1em Georgia;
+}
+
+#index_item {
+	width:100%; 
+	height:80px; 
+	font:3em/1em Georgia;
+}
+
+.long-value-input {
+  width: 200px;
+  height: 30px;
+  padding: 0 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.jb-bold {
+     font-weight: bold;
+}
+
+.jb-bigsize {
+    font-size: 30px;
+}
+
+* {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+.page {
+	width: 21cm;
+	min-height: 29.7cm;
+	padding: 2cm;
+	margin: 0 auto;
+	width:90%; 
+	height:100%; 
+	background:white;
+}
+
+.subpage {
+	border: 2px red solid;
+	background:#fff;   
+	height: 257mm;
+}
+
+
+@page {
+	size: A4;
+	margin: 0;
+}
+
+@media print {
+	html, body {
+	width: 210mm;
+	height: 297mm;
+	}
+
+	.page {
+	margin: 0;
+	border: initial;
+	width: initial;
+	min-height: initial;
+	box-shadow: initial;
+	background: initial;
+	page-break-after: always;
+	}
+}
