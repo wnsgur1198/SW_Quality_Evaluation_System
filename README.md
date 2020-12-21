@@ -4,19 +4,29 @@
 ![](readme-img/header.png)
 ![](readme-img/header2.png)
 
-## Installation
+## 개발기간
+* 2019.09.03.~12.01. (약3개월)
 
--
 
-## Usage example
+## 주요 기능
+* QA가 편리하게 SW를 평가할 수 있도록 국제표준(IHE,ISO9126) 기반의 의료용 SW 품질평가시스템 
+* 국제표준에 기술된 테스트케이스들을 DB화하여 사용자가 체크함으로써 SW의 품질을 평가하도록 함.
+    * 도메인 지정 -> 테스트케이스 선택 -> 결과보고서 생성
 
-ISO 9126, IHE, NIST 등의 의료 표준을 만족하는 소프트웨어를 개발하기 위한 SW의 품질을 평가하는 웹 사이트이다.
 
-각 표준의 테스트케이스를 체크하는 형식으로 품질 평가를 진행한다.
+## 담당한 부분
+* CM(형상관리)
+    * 문서 템플릿 생성
+    * 문서 및 산출물 버전 관리
+	 * 회의록 작성
+ * DB 관리 
+
 
 ## Development setup
+* 사용된 언어 : HTML/CSS/JS
+* 웹 서버 : AWS EC2 (Ubuntu, Apache Tomcat)
+* DB 서버 : AWS RDS (MySQL)
 
-HTML, CSS, Javascript
 
 ## Release History
 
@@ -24,16 +34,7 @@ HTML, CSS, Javascript
     * first
     * 개발 완료
 
-## Meta
 
-김준혁 – wnsgur1198@naver.com
+## Contact
 
-## Contributing
-
-1. Fork it (<https://github.com/yourname/yourproject/fork>)
-2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Commit your changes (`git commit -am 'Add some fooBar'`)
-4. Push to the branch (`git push origin feature/fooBar`)
-5. Create a new Pull Request
-
-<!-- Markdown link & img dfn's -->
+김준혁 – kimjunhyeok.it@gmail.com
